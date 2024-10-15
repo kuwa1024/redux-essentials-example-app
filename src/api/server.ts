@@ -1,9 +1,9 @@
+import { faker } from '@faker-js/faker/locale/en'
+import { factory, manyOf, oneOf, primaryKey } from '@mswjs/data'
+import { nanoid } from '@reduxjs/toolkit'
+import { Client, Server as MockSocketServer } from 'mock-socket'
 import { http, HttpResponse } from 'msw'
 import { setupWorker } from 'msw/browser'
-import { factory, oneOf, manyOf, primaryKey } from '@mswjs/data'
-import { nanoid } from '@reduxjs/toolkit'
-import { faker } from '@faker-js/faker/locale/en'
-import { Server as MockSocketServer, Client } from 'mock-socket'
 
 import { parseISO } from 'date-fns'
 
@@ -12,7 +12,7 @@ const POSTS_PER_USER = 3
 const RECENT_NOTIFICATIONS_DAYS = 7
 
 // Add an extra delay to all endpoints, so loading spinners show up.
-const ARTIFICIAL_DELAY_MS = 2000
+const ARTIFICIAL_DELAY_MS = 100
 
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms))
